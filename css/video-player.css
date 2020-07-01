@@ -1,0 +1,55 @@
+.vp {
+  position: relative;
+  width: 700px;
+}
+
+.vp__wrapper {
+  position: relative;
+}
+
+
+.vp__video-container {
+  position: relative;
+}
+
+.vp__video-container video {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+
+.vp__controls-container {
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  display: block;
+  background-color: rgba(0,0,0,.35);
+  z-index: 2;
+  margin-bottom: 4px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.controls-container__progress-bar-container {
+  width: 95%;
+  height: 6px;
+  margin: 5px auto;
+  border-radius: 7px;
+  position: relative;
+}
+
+.controls-container__progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-color: #666;
+  border-radius: 7px;
+}
+
+.controls-container__controls {
+
+}

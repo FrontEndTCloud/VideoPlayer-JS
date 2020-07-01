@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Video Player</title>
+
+  <link rel="stylesheet" type="text/css" href="libs/fontawesome-pro-5.0.4/web-fonts-with-css/css/fa-light.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/fontawesome-pro-5.0.4/web-fonts-with-css/css/fontawesome.css">
+	<link rel="stylesheet" type="text/css" href="libs/fontawesome-pro-5.0.4/web-fonts-with-css/css/fa-brands.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/fontawesome-pro-5.0.4/web-fonts-with-css/css/fa-regular.min.css">
+  <link rel="stylesheet" type="text/css" href="libs/fontawesome-pro-5.0.4/web-fonts-with-css/css/fa-solid.min.css">
+  
+  <script type="text/javascript" src="libs/vue.min.js"></script>
+
+
+  <!-- Custom script and stylies -->
+  <link rel="stylesheet" type="text/css" href="css/video-player.css" />
+
+</head>
+<body>
+
+  <div class="vp" id="myVideoId">
+    <div class="vp__wrapper">
+      
+      <div class="vp__video-container">
+        <video muted="true">
+          <source src="video/smash-into-pieces-arcadia.mp4">
+          <noscript>Javascript is disabled in your web browser.</noscript>
+        </video>
+      </div>
+
+      <div class="vp__controls-container">
+
+        <div class="controls-container__progress-bar-container">
+          <!-- <div class="controls-container__progress-bar"></div> -->
+          <input type="range" min="0" max="100" id="timeline-control" class="controls-container__progress-bar">
+        </div>
+        <div class="controls-container__controls">
+          <button id="play-vp-btn">Play</button>
+          <button id="pause-vp-btn">Pause</button>
+          <button id="mute-vp-btn">Mute</button>
+          <button id="fullscreen-vp-btn">Fullscreen</button>
+          <input type="range" id="volume-control">
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="libs/video.player.min.js"></script>
+  <script type="text/javascript">
+
+    var videoPlayerContainer = document.getElementById('myVideoId'),
+        options = {
+          videoplayer: {
+            loop: 'true',
+            autoplay: 'false',
+          },
+          components: {
+            playbutton: { id: 'play-vp-btn' },
+            pausebutton: { id: 'pause-vp-btn' },
+            mutebutton: { id: 'mute-vp-btn' },
+            fullscreenbutton: { id: 'fullscreen-vp-btn' },
+            volumebutton: { id: 'volume-control' },
+            timelineprogressbar: { id: 'timeline-control' },
+          }
+        },
+        videoPlayer = new VideoPlayer( videoPlayerContainer, options );
+  </script>
+
+</body>
+</html>
