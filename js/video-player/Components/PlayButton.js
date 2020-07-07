@@ -26,7 +26,7 @@ class PlayButton extends Component {
         }
       }),
       
-  ];
+    ];
   }
 
 }

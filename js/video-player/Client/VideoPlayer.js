@@ -27,6 +27,7 @@ class VideoPlayer {
     'FullscreenButton',
     'VolumeButton',
     'TimelineProgressbar',
+    'SourceCollection',
   ];
 
   /**

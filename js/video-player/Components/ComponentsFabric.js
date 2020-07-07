@@ -34,11 +34,14 @@ class ComponentsFabric {
       case 'TimelineProgressbar':
         component = new TimelineProgressbar(videoPlayer);
         break;
+      case 'SourceCollection':
+        component = new SourceCollection(videoPlayer);
+        break;
       default:
         throw new UndefinedComponentException(componentName + ' is not found.');
         break;
     }
-
+    
     return component;
   }
 

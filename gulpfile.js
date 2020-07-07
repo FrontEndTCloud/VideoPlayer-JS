@@ -28,6 +28,7 @@ gulp.task(
       'tmp/video-player/Components/FullscreenButton.js',
       'tmp/video-player/Components/VolumeButton.js',
       'tmp/video-player/Components/TimelineProgressbar.js',
+      'tmp/video-player/Components/SourceCollection.js',
       'tmp/video-player/Components/ComponentsFabric.js',
       'tmp/video-player/Components/Decorators/Decorator.js',
       'tmp/video-player/Components/Decorators/BaseDecorators/ButtonDecorator.js',
@@ -44,6 +45,7 @@ gulp.task(
       'tmp/video-player/Models/FullscreenButtonModel.js',
       'tmp/video-player/Models/VolumeButtonModel.js',
       'tmp/video-player/Models/TimelineProgressbarModel.js',
+      'tmp/video-player/Models/SourceModel.js',
       'tmp/video-player/Models/EventModel.js',
       'tmp/video-player/Models/ModelsFabric.js',
       'tmp/video-player/Exceptions/VPException.js',
@@ -57,7 +59,7 @@ gulp.task(
 
     return gulp.src(queue)
       .pipe(gulpConcat('video.player.min.js'))
-      .pipe(uglify())
+      // .pipe(uglify())
       .pipe(gulp.dest('libs/'));
   }
 );
