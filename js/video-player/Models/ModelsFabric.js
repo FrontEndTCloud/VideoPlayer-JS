@@ -13,7 +13,7 @@ class ModelsFabric {
     'FullscreenButton': 'FullscreenButtonModel',
     'VolumeButton': 'VolumeButtonModel',
     'TimelineProgressbar': 'TimelineProgressbarModel',
-    'SourceCollection': 'SourceModel',
+    'SourcesCollection': 'SourcesCollectionModel',
   };
   
   /**
@@ -46,8 +46,8 @@ class ModelsFabric {
       case 'TimelineProgressbarModel':
         component = new TimelineProgressbarModel();
         break;
-      case 'SourceModel':
-        component = new SourceModel();
+      case 'SourcesCollectionModel':
+        component = new SourcesCollectionModel();
         break;
       default:
         throw new UndefinedComponentException(name + ' is not found.');

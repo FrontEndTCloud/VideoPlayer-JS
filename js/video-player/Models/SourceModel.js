@@ -37,7 +37,7 @@ class SourceModel extends BaseModel {
    * @param {String} name
    */
   set name(name) {
-    return this._name;
+    this._name = name;
   }
 
   /**
@@ -51,7 +51,7 @@ class SourceModel extends BaseModel {
    * @param {String} link
    */
   set link(link) {
-    return this._link;
+    this._link = link;
   }
 
   /**
@@ -65,7 +65,7 @@ class SourceModel extends BaseModel {
    * @param {String} mode
    */
   set mode(mode) {
-    return this._mode;
+    this._mode = mode;
   }
 
   /**
@@ -79,7 +79,7 @@ class SourceModel extends BaseModel {
    * @param {Integer} index
    */
   set index(index) {
-    return this._index;
+    this._index = index;
   }
 
   /**
@@ -97,7 +97,7 @@ class SourceModel extends BaseModel {
     if(optionsObject.mode)
       this.mode = String(optionsObject.mode);
 
-    if(optionsObject.index)
+    if(String(optionsObject.index))
       this.index = parseInt(optionsObject.index);
 
     return this;

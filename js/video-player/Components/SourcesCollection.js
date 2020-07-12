@@ -1,28 +1,28 @@
 /**
- * @class SourceCollection
+ * @class SourcesCollection
  * @extends Component
  * @package Components
  */
 
-class SourceCollection extends Component {
+class SourcesCollection extends Component {
 
   /**
-   * @var {Array<SourceModel>}
+   * @var SourcesCollectionModel
    */
   _collection;
 
   /**
-   * @returns {Array<SourceModel>}
+   * @returns SourcesCollectionModel
    */
   get collection() {
     return this._collection;
   }
 
   /**
-   * @param {Array} collection
+   * @param SourcesCollectionModel collection
    */
   set collection(collection) {
-    this._collection = this.buildModelsCollection(collection);
+    this._collection = new SourcesCollectionModel(collection);
   }
 
   /**
@@ -44,19 +44,6 @@ class SourceCollection extends Component {
       }),
       
     ];
-  }
-
-  /**
-   * @param {Array} array
-   */
-  buildModelsCollection(array) {
-    for(let i = 0; i < array.length; i++) {
-      console.log(array[i])
-
-      array[i] = (new SourceModel()).fromObject(array[i]);
-    }
-
-    return array;
   }
 
 }

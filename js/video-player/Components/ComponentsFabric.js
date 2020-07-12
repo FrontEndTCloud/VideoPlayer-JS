@@ -34,8 +34,8 @@ class ComponentsFabric {
       case 'TimelineProgressbar':
         component = new TimelineProgressbar(videoPlayer);
         break;
-      case 'SourceCollection':
-        component = new SourceCollection(videoPlayer);
+      case 'SourcesCollection':
+        component = new SourcesCollection(videoPlayer);
         break;
       default:
         throw new UndefinedComponentException(componentName + ' is not found.');
