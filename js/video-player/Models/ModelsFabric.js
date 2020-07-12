@@ -14,6 +14,7 @@ class ModelsFabric {
     'VolumeButton': 'VolumeButtonModel',
     'TimelineProgressbar': 'TimelineProgressbarModel',
     'SourcesCollection': 'SourcesCollectionModel',
+    'Catalog': 'CatalogCollectionModel',
   };
   
   /**
@@ -48,6 +49,9 @@ class ModelsFabric {
         break;
       case 'SourcesCollectionModel':
         component = new SourcesCollectionModel();
+        break;
+      case 'CatalogCollectionModel':
+        component = new CatalogCollectionModel();
         break;
       default:
         throw new UndefinedComponentException(name + ' is not found.');

@@ -37,6 +37,9 @@ class ComponentsFabric {
       case 'SourcesCollection':
         component = new SourcesCollection(videoPlayer);
         break;
+      case 'Catalog':
+        component = new Catalog(videoPlayer);
+        break;
       default:
         throw new UndefinedComponentException(componentName + ' is not found.');
         break;

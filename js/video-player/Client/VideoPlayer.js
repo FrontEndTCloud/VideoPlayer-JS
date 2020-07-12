@@ -28,6 +28,7 @@ class VideoPlayer {
     'VolumeButton',
     'TimelineProgressbar',
     'SourcesCollection',
+    'Catalog',
   ];
 
   /**
@@ -218,14 +219,9 @@ class VideoPlayer {
      * Models initialization
      */
     Object.keys(options.components).forEach(componentName => {
-      let modelsFabric = new ModelsFabric(),
-          optionsModel = (modelsFabric.makeOne(componentName)).fromObject(options.components[componentName]);
-
       for( let [key, value] of Object.entries(options.components[componentName]) ) {
         this.components[componentName][key] = value;
       }
-
-      // this.components[componentName] = optionsModel;
     });
   }
 
@@ -234,7 +230,6 @@ class VideoPlayer {
    */
   initializeComponentsEvents() {
     for(let componentName of Object.keys(this.components)) {
-      console.log(componentName);
       this.components[componentName].events.forEach(event => {
         this.components[componentName].setEvent(
           event.eventTarget,

@@ -1,32 +1,32 @@
 /**
- * @class SourcesCollection
+ * @class Catalog
  * @extends Component
  * @package Components
  */
 
-class SourcesCollection extends Component {
+class Catalog extends Component {
 
   /**
-   * @var SourcesCollectionModel
+   * @var CatalogCollectionModel
    */
   _collection;
 
   /**
-   * @returns SourcesCollectionModel
+   * @returns CatalogCollectionModel
    */
   get collection() {
     return this._collection;
   }
 
   /**
-   * @param SourcesCollectionModel collection
+   * @param CatalogCollectionModel collection
    */
   set collection(collection) {
-    this._collection = (new SourcesCollectionModel(collection)).collection;
+    this._collection = (new CatalogCollectionModel(collection)).collection;
   }
 
   /**
-   * @param {DOMObject} videoPlayer
+   * @param {DOMObject} videoPlayer 
    */
   constructor(videoPlayer) {
     super();
@@ -34,7 +34,7 @@ class SourcesCollection extends Component {
     this.events = [
 
       (new EventModel()).fromObject({
-        eventName: 'click',
+        eventName: '...',
         eventCallback: function() {
           /**
            * In this code block you can use "this" for

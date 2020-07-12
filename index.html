@@ -20,7 +20,7 @@
 </head>
 <body>
 
-  <div class="vp" id="myVideoId">
+  <div class="vp with-sidebar" id="myVideoId">
     <div class="vp__wrapper">
       
       <div class="vp__video-container">
@@ -43,9 +43,17 @@
           <button id="fullscreen-vp-btn">Fullscreen</button>
           <input type="range" id="volume-control">
         </div>
-
       </div>
 
+      <div class="vp__footer">
+        <div id="catalog"></div>
+      </div>
+
+    </div>
+    
+    <div class="vp__sidebar">
+      <h4>Вариант озвучки</h4>
+      <div id="sources" class="sources__container"></div>
     </div>
   </div>
   
@@ -54,10 +62,7 @@
 
     var videoPlayerContainer = document.getElementById('myVideoId'),
         options = {
-          videoplayer: {
-            loop: 'true',
-            autoplay: 'false',
-          },
+          videoplayer: {},
           components: {
             playbutton: { id: 'play-vp-btn' },
             pausebutton: { id: 'pause-vp-btn' },
@@ -66,15 +71,49 @@
             volumebutton: { id: 'volume-control' },
             timelineprogressbar: { id: 'timeline-control' },
             sourcescollection: {
+              id: 'sources',
               collection: [
-                { name: 'First item name', link: '/video/smash-into-pieces-arcadia.mp4', mode: '_blank', index: 0, },
-                { name: 'Second item name', link: '/video/from-ashes-to-new-my-name.mp4', mode: '_blank', index: 1, },
-                { name: 'Third item name', link: '/video/from-ashes-to-new-my-name.mp4', mode: '_blank', index: 2, },
+                { name: 'LostFilm', link: 'https://google.com', mode: '_blank', index: 0, },
+                { name: 'SV-DUBL', link: 'https://facebook.com', mode: '_blank', index: 1, },
+                { name: 'AniLibria', link: 'https://vk.com', mode: '_blank', index: 2, },
               ]
             },
+            catalog: {
+              id: 'catalog',
+              collection: [
+                {
+                  title: 'Smash Into Pieces - Arcadia',
+                  subTitle: '1',
+                  video: [
+                    {link: '/video/smash-into-pieces-arcadia.mp4', format: 'mp4'},
+                  ]
+                },
+                {
+                  title: 'Smash Into Pieces - Arcadia',
+                  subTitle: '1',
+                  video: [
+                    {link: '/video/from-ashes-to-new-my-name.mp4', format: 'mp4'},
+                  ]
+                },
+                {
+                  title: 'From Ashes To New',
+                  subTitle: '1',
+                  video: [
+                    {link: '/video/from-ashes-to-new.mp4', format: 'mp4'},
+                  ]
+                },
+              ]
+            }
           }
         },
-        videoPlayer = new VideoPlayer( videoPlayerContainer, options );
+        vp = new VideoPlayer(videoPlayerContainer, options);
+
+        /**
+         * Input source collection items
+         */ 
+        vp.components.sourcescollection.collection.map(source => {
+        document.getElementById(vp.components.sourcescollection.id).innerHTML += `<p><a target="${source.mode}" href="${source.link}">${source.name}</a></p>`;
+        });
   </script>
 
 </body>

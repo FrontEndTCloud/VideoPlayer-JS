@@ -1,47 +1,44 @@
 /**
- * @class SourcesCollectionModel
- * @package Models
+ * @class LinksCollectionModel
+ * @package Models/CatalogModels
  */
 
-class SourcesCollectionModel extends BaseModel {
+class LinksCollectionModel {
 
-  /**
-   * @var Array<SourceModel>
-   */
   _collection;
 
   /**
-   * @returns Array<SourceModel>
+   * @return Array<LinkModel>
    */
   get collection() {
     return this._collection;
   }
 
   /**
-   * @param Array<Object>
+   * @param Array
    */
   set collection(collection) {
     this._collection = this.buildFromArray(collection);
   }
 
   constructor(array) {
-    super();
-
     this.collection = array;
   }
 
   /**
-   * @param Array<Object>
-   * @return Array<SourceModel>
+   * @param {Array} array 
+   * @return Array<LinkModel>
    */
   buildFromArray(array = []) {
     let res = [];
 
-    array.forEach(sourceObject => {
+    array.forEach(catalogObject => {
       res.push(
-        (new SourceModel).fromObject(sourceObject)
+        (new LinkModel).fromObject(catalogObject)
       );
     });
+
+    console.log(res)
 
     return res;
   }

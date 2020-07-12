@@ -1,3 +1,27 @@
+/**
+ * Utilities
+ */
+
+.vp.with-sidebar {
+  display: flex;
+}
+
+.vp.with-sidebar .vp__sidebar,
+.vp.with-sidebar .vp__wrapper {
+  display: inline-block;
+}
+
+.vp.with-sidebar .vp__wrapper {
+  width: 80%;
+}
+
+.vp.with-sidebar .vp__sidebar {
+  width: 20%;
+}
+
+/**
+ * Main
+ */
 .vp {
   position: relative;
   width: 700px;
@@ -5,6 +29,11 @@
 
 .vp__wrapper {
   position: relative;
+}
+
+.vp__sidebar {
+  box-sizing: border-box;
+  padding: 10px;
 }
 
 
@@ -50,6 +79,8 @@
   border-radius: 7px;
 }
 
-.controls-container__controls {
 
+.sources__container {
+  display: inline-block;
+  height: 100%;
 }

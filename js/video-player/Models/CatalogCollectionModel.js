@@ -1,17 +1,17 @@
 /**
- * @class SourcesCollectionModel
+ * @class CatalogCollectionModel
  * @package Models
  */
 
-class SourcesCollectionModel extends BaseModel {
-
+class CatalogCollectionModel extends BaseModel {
+  
   /**
-   * @var Array<SourceModel>
+   * @var Array<CatalogModel>
    */
   _collection;
 
   /**
-   * @returns Array<SourceModel>
+   * @returns Array<CatalogModel>
    */
   get collection() {
     return this._collection;
@@ -32,18 +32,17 @@ class SourcesCollectionModel extends BaseModel {
 
   /**
    * @param Array<Object>
-   * @return Array<SourceModel>
+   * @return Array<CatalogModel>
    */
   buildFromArray(array = []) {
     let res = [];
 
-    array.forEach(sourceObject => {
+    array.forEach(catalogObject => {
       res.push(
-        (new SourceModel).fromObject(sourceObject)
+        (new CatalogModel).fromObject(catalogObject)
       );
     });
 
     return res;
   }
-
 }

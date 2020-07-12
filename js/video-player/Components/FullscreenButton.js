@@ -83,7 +83,7 @@ class FullscreenButton extends Component {
       isFullscreen = true;
     }
     
-    if (videoPlayer.msRequestFullscreen) { /* IE/Edge */
+    if (videoPlayerContainer.msRequestFullscreen) { /* IE/Edge */
       videoPlayerContainer.msRequestFullscreen();
       isFullscreen = true;
     }
