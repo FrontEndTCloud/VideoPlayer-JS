@@ -38,8 +38,6 @@ class LinksCollectionModel {
       );
     });
 
-    console.log(res)
-
     return res;
   }
 

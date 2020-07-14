@@ -45,4 +45,21 @@ class CatalogCollectionModel extends BaseModel {
 
     return res;
   }
+
+  /**
+   * @param String property
+   * @param String value
+   * @return CatalogModel|Boolean
+   */
+  getBy(property, value) {
+    let result = false;
+
+    this.collection.map(item => {
+      if(item[property] == value) {
+        result = item;
+      }
+    })
+
+    return result;
+  }
 }

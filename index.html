@@ -5,15 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JavaScript Video Player</title>
 
-  <link rel="stylesheet" type="text/css" href="libs/fontawesome-pro-5.0.4/web-fonts-with-css/css/fa-light.min.css">
-	<link rel="stylesheet" type="text/css" href="libs/fontawesome-pro-5.0.4/web-fonts-with-css/css/fontawesome.css">
-	<link rel="stylesheet" type="text/css" href="libs/fontawesome-pro-5.0.4/web-fonts-with-css/css/fa-brands.min.css">
-	<link rel="stylesheet" type="text/css" href="libs/fontawesome-pro-5.0.4/web-fonts-with-css/css/fa-regular.min.css">
-  <link rel="stylesheet" type="text/css" href="libs/fontawesome-pro-5.0.4/web-fonts-with-css/css/fa-solid.min.css">
-  
-  <script type="text/javascript" src="libs/vue.min.js"></script>
-
-
   <!-- Custom script and stylies -->
   <link rel="stylesheet" type="text/css" href="css/video-player.css" />
 
@@ -84,22 +75,25 @@
                 {
                   title: 'Smash Into Pieces - Arcadia',
                   subTitle: '1',
+                  slug: 'first',
                   video: [
-                    {link: '/video/smash-into-pieces-arcadia.mp4', format: 'mp4'},
+                    {link: 'file:///C:/Users/TCloud/Documents/02_Codes/JavaScript/VideoPlayer-JS/video/smash-into-pieces-arcadia.mp4', format: 'video/mp4'},
                   ]
                 },
                 {
                   title: 'Smash Into Pieces - Arcadia',
-                  subTitle: '1',
+                  subTitle: '2',
+                  slug: 'second',
                   video: [
-                    {link: '/video/from-ashes-to-new-my-name.mp4', format: 'mp4'},
+                    {link: 'file:///C:/Users/TCloud/Documents/02_Codes/JavaScript/VideoPlayer-JS/video/from-ashes-to-new-my-name.mp4', format: 'video/mp4'},
                   ]
                 },
                 {
                   title: 'From Ashes To New',
-                  subTitle: '1',
+                  subTitle: '3',
+                  slug: 'third',
                   video: [
-                    {link: '/video/from-ashes-to-new.mp4', format: 'mp4'},
+                    {link: 'file:///C:/Users/TCloud/Documents/02_Codes/JavaScript/VideoPlayer-JS/video/from-ashes-to-new.mp4', format: 'video/mp4'},
                   ]
                 },
               ]
@@ -112,7 +106,16 @@
          * Input source collection items
          */ 
         vp.components.sourcescollection.collection.map(source => {
-        document.getElementById(vp.components.sourcescollection.id).innerHTML += `<p><a target="${source.mode}" href="${source.link}">${source.name}</a></p>`;
+          document.getElementById(vp.components.sourcescollection.id).innerHTML += `<p><a target="${source.mode}" href="${source.link}">${source.name}</a></p>`;
+        });
+
+        vp.components.catalog.collection.map(catalog => {
+          document.getElementById(vp.components.catalog.id).innerHTML +=
+            `
+            <div class="catalog__item" data-slug="${catalog.slug}">
+              ${catalog.subTitle}
+            </div>
+            `;
         });
   </script>
 

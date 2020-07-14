@@ -16,6 +16,11 @@ class CatalogModel extends BaseModel {
   _subTitle;
 
   /**
+   * @var String
+   */
+  _slug;
+
+  /**
    * @var CatalogCollectionModel
    */
   _video;
@@ -49,6 +54,20 @@ class CatalogModel extends BaseModel {
   }
 
   /**
+   * @returns String
+   */
+  get slug() {
+    return this._slug;
+  }
+
+  /**
+   * @param String slug
+   */
+  set slug(slug) {
+    this._slug = slug;
+  }
+
+  /**
    * @returns Array<CatalogModel>
    */
   get video() {
@@ -68,6 +87,9 @@ class CatalogModel extends BaseModel {
 
     if(object.subTitle)
       this.subTitle = object.subTitle;
+
+    if(object.slug)
+      this.slug = object.slug;
 
     if(object.video)
       this.video = object.video;

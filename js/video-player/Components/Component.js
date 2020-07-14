@@ -73,21 +73,52 @@ class Component {
   }
 
   /**
-   * @param {DOMObject} eventTarget 
+   * @param {DOMObject|NodeList|String} eventTarget 
    * @param {String} eventName 
    * @param {Function} eventCallback 
    */
-  setEvent( eventTarget, eventName, eventCallback ) {    
-    if( typeof eventCallback === 'function' ) {
-      if(eventTarget) {
-        eventTarget.addEventListener(eventName, eventCallback);
-      }
+  setEvent(eventTarget, eventName, eventCallback) {    
+    if(typeof eventCallback === 'function') {
 
-      if(document.getElementById(this.id)) {
-        document.getElementById(this.id).addEventListener(eventName, eventCallback);
+      if(typeof eventTarget == 'string') {
+        this.setDynamicEvent(eventTarget, eventName, eventCallback);
+      } else {
+        this.setDefaultEvent(eventTarget, eventName, eventCallback);
       }
     } else {
       throw new InvalidTypeException('Invalid type of component event, expected "function" type.');
+    }
+  }
+
+  /**
+   * Применяется, когда eventTarget DOMObject|NodeList
+   * @param {DOMObject|NodeList} eventTarget 
+   * @param {String} eventName 
+   * @param {Function} eventCallback 
+   */
+  setDefaultEvent(eventTarget, eventName, eventCallback) {
+    if(eventTarget) {
+      eventTarget.addEventListener(eventName, eventCallback);
+    }
+
+    if(document.getElementById(this.id)) {
+      document.getElementById(this.id).addEventListener(eventName, eventCallback);
+    }
+  }
+
+  /**
+   * Применяется, когда eventTarget название класса или id
+   * @param {String} eventTarget 
+   * @param {String} eventName 
+   * @param {Function} eventCallback 
+   */
+  setDynamicEvent(eventTarget, eventName, eventCallback) {
+    if(eventTarget) {
+      document.addEventListener(eventName, function(e) {
+        if(e.target && (e.target.className === eventTarget || e.target.id === eventTarget)) {
+          eventCallback(e);
+        }
+      });
     }
   }
 
