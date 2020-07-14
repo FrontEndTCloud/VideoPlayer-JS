@@ -1,7 +1,5 @@
 # JavaScritp flexible video player
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/YudovAlexei/VideoPlayer-JS)
-
 # Options
 ##### Boolean: #####
 - muted
